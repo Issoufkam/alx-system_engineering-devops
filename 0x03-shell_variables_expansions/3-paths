@@ -1,2 +1,10 @@
 #!/bin/bash
-echo $PATH | tr ':' '\n' | wc -1
+
+# Split the PATH environment variable on the ':' character
+IFS=':' read -ra DIRS <<< "$PATH"
+
+# Count the number of directories in the PATH
+COUNT=${#DIRS[@]}
+
+# Print the number of directories in the PATH
+echo "There are $COUNT directories in the PATH"
